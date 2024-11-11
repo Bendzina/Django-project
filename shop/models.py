@@ -2,7 +2,10 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=20)
-    category_type = models.CharField(max_length=20)
+    category_type = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
@@ -13,5 +16,8 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ManyToManyField(Category)
 
-    
+    def __str__(self):
+        return self.name
+
+
 
